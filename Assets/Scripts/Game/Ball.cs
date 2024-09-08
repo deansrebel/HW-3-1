@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Arkanoid.Game
 {
@@ -8,7 +9,8 @@ namespace Arkanoid.Game
 
         [SerializeField] private Rigidbody2D _rb;
         [SerializeField] private Vector2 _startDirection;
-
+        
+        
         #endregion
 
         #region Unity lifecycle
@@ -16,6 +18,15 @@ namespace Arkanoid.Game
         private void Start()
         {
             _rb.velocity = _startDirection;
+        }
+        
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.tag == "Death")
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                
+            }
         }
 
         #endregion
