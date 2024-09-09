@@ -2616,11 +2616,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 523561034905244407, guid: cda3790319ada754687f411a53e26007, type: 3}
       propertyPath: _startDirection.x
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 523561034905244407, guid: cda3790319ada754687f411a53e26007, type: 3}
       propertyPath: _startDirection.y
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1118628038715603473, guid: cda3790319ada754687f411a53e26007, type: 3}
       propertyPath: m_Name
