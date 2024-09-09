@@ -14,12 +14,18 @@ namespace Arkanoid.Game
         private bool _isHit;
 
         #endregion
-        
+
+        #region Unity lifecycle
+
         private void OnCollisionEnter2D(Collision2D other)
         {
             _lives--;
             IsAlive();
         }
+
+        #endregion
+
+        #region Private methods
 
         private void IsAlive()
         {
@@ -39,5 +45,7 @@ namespace Arkanoid.Game
                 _spriteRenderer.sprite = _spriteSecondHit;
             }
         }
+
+        #endregion
     }
 }
