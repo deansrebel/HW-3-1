@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 namespace Arkanoid.Game
@@ -10,6 +11,7 @@ namespace Arkanoid.Game
         [SerializeField] private Sprite _spriteSecondHit;
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private int _lives = 1;
+        [SerializeField] private int _score = 1;
 
         private bool _isHit;
 
@@ -31,6 +33,7 @@ namespace Arkanoid.Game
         {
             if (_lives == 0)
             {
+                ScoreCount.Score = +_score;
                 Destroy(gameObject);
             }
 

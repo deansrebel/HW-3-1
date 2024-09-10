@@ -147,3 +147,5 @@ MonoBehaviour:
   _spriteSecondHit: {fileID: 0}
   _spriteRenderer: {fileID: 0}
   _lives: 1
+  _score: 0
+  _scoreLabel: {fileID: 0}

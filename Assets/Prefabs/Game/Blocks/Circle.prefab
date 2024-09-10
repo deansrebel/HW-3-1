@@ -85,6 +85,8 @@ MonoBehaviour:
   _spriteSecondHit: {fileID: 21300000, guid: c301e4f6ea710f5478dddd9622299ead, type: 3}
   _spriteRenderer: {fileID: 5630810824675279260}
   _lives: 1
+  _score: 2
+  _scoreLabel: {fileID: 0}
 --- !u!1 &7908003638319946229
 GameObject:
   m_ObjectHideFlags: 0
