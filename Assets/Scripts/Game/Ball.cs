@@ -9,6 +9,7 @@ namespace Arkanoid.Game
 
         [SerializeField] private Rigidbody2D _rb;
         [SerializeField] private Vector2 _startDirection;
+        [SerializeField] private float _speed = 10;
 
         private bool _isStarted;
         private Platform _platform;
@@ -73,7 +74,7 @@ namespace Arkanoid.Game
         private void StartFlying()
         {
             _isStarted = true;
-            _rb.velocity = _startDirection;
+            _rb.velocity = _startDirection.normalized * _speed;
         }
 
         #endregion

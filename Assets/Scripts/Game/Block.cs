@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 
 namespace Arkanoid.Game
@@ -22,6 +21,11 @@ namespace Arkanoid.Game
         private void OnCollisionEnter2D(Collision2D other)
         {
             _lives--;
+            if (_lives == 0)
+            {
+                ScoreCount.Score += _score;
+                Destroy(gameObject);
+            }
             IsAlive();
         }
 
@@ -31,12 +35,6 @@ namespace Arkanoid.Game
 
         private void IsAlive()
         {
-            if (_lives == 0)
-            {
-                ScoreCount.Score = +_score;
-                Destroy(gameObject);
-            }
-
             if (_lives == 2)
             {
                 _spriteRenderer.sprite = _spriteFirstHit;

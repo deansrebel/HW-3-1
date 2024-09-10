@@ -1,16 +1,23 @@
-using System;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine;
 
 namespace Arkanoid.Game
 {
     public class ScoreCount : MonoBehaviour
     {
+        #region Variables
+
         [SerializeField] private TextMeshProUGUI _scoreLabel;
-        
+
+        #endregion
+
+        #region Properties
+
         public static int Score { get; set; }
+
+        #endregion
+
+        #region Unity lifecycle
 
         private void Start()
         {
@@ -21,8 +28,7 @@ namespace Arkanoid.Game
         {
             _scoreLabel.text = $"Score: {Score}";
         }
-        
-        
-        
+
+        #endregion
     }
 }
