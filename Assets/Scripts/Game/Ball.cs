@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Arkanoid.Game
 {
@@ -35,14 +34,6 @@ namespace Arkanoid.Game
             if (!_isStarted && Input.GetMouseButtonDown(0))
             {
                 StartFlying();
-            }
-        }
-
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            if (collision.gameObject.CompareTag("Death"))
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
 

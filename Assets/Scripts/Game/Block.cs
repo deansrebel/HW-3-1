@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Arkanoid.Game
@@ -6,34 +7,59 @@ namespace Arkanoid.Game
     {
         #region Variables
 
+        [Header("Visual")]
+        [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private Sprite _spriteFirstHit;
         [SerializeField] private Sprite _spriteSecondHit;
-        [SerializeField] private SpriteRenderer _spriteRenderer;
+
+        [Header("Config")]
         [SerializeField] private int _lives = 1;
         [SerializeField] private int _score = 1;
 
-        private bool _isHit;
+        #endregion
+
+        #region Events
+
+        public event Action<Block> OnCreated;
+        public event Action<Block> OnDestroyed;
 
         #endregion
 
         #region Unity lifecycle
+
+        private void Start()
+        {
+            OnCreated?.Invoke(this);
+        }
+
+        private void OnDestroy()
+        {
+            OnDestroyed?.Invoke(this);
+        }
 
         private void OnCollisionEnter2D(Collision2D other)
         {
             _lives--;
             if (_lives == 0)
             {
-                ScoreCount.Score += _score;
-                Destroy(gameObject);
+                DestroyBlock();
+                return;
             }
-            IsAlive();
+
+            UpdateView();
         }
 
         #endregion
 
         #region Private methods
 
-        private void IsAlive()
+        private void DestroyBlock()
+        {
+            ScoreCount.Score += _score;
+            Destroy(gameObject);
+        }
+
+        private void UpdateView()
         {
             if (_lives == 2)
             {
